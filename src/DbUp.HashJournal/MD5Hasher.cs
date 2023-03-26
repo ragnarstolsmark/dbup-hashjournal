@@ -2,7 +2,7 @@ using System;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace DbUp.HashJournal.Core
+namespace DbUp.HashJournal
 {
     public static class MD5Hasher
     {

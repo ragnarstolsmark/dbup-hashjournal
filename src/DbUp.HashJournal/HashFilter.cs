@@ -3,7 +3,7 @@ using System.Linq;
 using DbUp.Engine;
 using DbUp.Support;
 
-namespace DbUp.HashJournal.Core
+namespace DbUp.HashJournal
 {
     public class HashFilter : IScriptFilter
     {

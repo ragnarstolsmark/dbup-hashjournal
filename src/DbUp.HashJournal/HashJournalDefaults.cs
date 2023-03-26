@@ -1,6 +1,6 @@
 using System.Security.Cryptography;
 
-namespace DbUp.HashJournal.Core
+namespace DbUp.HashJournal
 {
     public class HashJournalDefaults
     {

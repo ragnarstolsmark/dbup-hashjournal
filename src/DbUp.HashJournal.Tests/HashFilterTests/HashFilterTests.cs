@@ -1,5 +1,4 @@
 using DbUp.Engine;
-using DbUp.HashJournal.Core;
 using DbUp.Support;
 
 namespace DbUp.HashJournal.Tests;

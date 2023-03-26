@@ -6,7 +6,7 @@ using DbUp.Engine;
 using DbUp.Engine.Output;
 using DbUp.Engine.Transactions;
 
-namespace DbUp.HashJournal.Core
+namespace DbUp.HashJournal
 {
     public abstract class HashJournal : IJournal
     {

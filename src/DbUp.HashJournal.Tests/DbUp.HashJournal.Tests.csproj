@@ -24,7 +24,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\DbUp.HashJournal.Core\DbUp.HashJournal.Core.csproj" />
+      <ProjectReference Include="..\DbUp.HashJournal\DbUp.HashJournal.csproj" />
     </ItemGroup>
 
     <ItemGroup>
