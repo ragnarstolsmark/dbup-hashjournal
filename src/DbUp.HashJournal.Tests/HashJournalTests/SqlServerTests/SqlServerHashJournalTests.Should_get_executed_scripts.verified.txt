@@ -1,0 +1,14 @@
+﻿DB Operation: Open connection
+Info:         Checking whether journal table exists..
+DB Operation: Execute scalar command: select 1 from INFORMATION_SCHEMA.TABLES where TABLE_NAME = 'HashVersions' and TABLE_SCHEMA = 'dbo'
+DB Operation: Dispose command
+Info:         Fetching list of already executed scripts.
+DB Operation: Execute reader command: SELECT [ScriptName], [Hash]
+    FROM [dbo].[HashVersions]
+    WHERE [Id] IN (
+        SELECT MAX([Id])
+        FROM [dbo].[HashVersions]
+        GROUP BY [ScriptName]
+    )
+    ORDER BY [ScriptName]
+DB Operation: Dispose command

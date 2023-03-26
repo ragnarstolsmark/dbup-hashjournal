@@ -1,6 +1,7 @@
 using System;
 using System.Data;
 using DbUp.Engine;
+using DbUp.HashJournal;
 
 namespace DbUp.Tests.Common.RecordingDb
 {
@@ -134,7 +135,10 @@ namespace DbUp.Tests.Common.RecordingDb
             {
                 if (runScripts == null)
                     throw new InvalidOperationException("runScripts is null");
-
+                if (i == 1)
+                {
+                    return MD5Hasher.GetHash(runScripts[currentIndex].Contents);
+                }
                 return runScripts[currentIndex].Name;
             }
         }
