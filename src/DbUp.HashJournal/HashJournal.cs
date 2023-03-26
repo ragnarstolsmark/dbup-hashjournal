@@ -21,14 +21,12 @@ namespace DbUp.HashJournal
         /// <param name="sqlObjectParser"></param>
         /// <param name="schema">The schema that contains the table.</param>
         /// <param name="table">The table name.</param>
-        /// <param name="nameHashSeparator">Separator between name and hash value returned in GetExecutedScripts.</param>
         protected HashJournal(
             Func<IConnectionManager> connectionManager,
             Func<IUpgradeLog> logger,
             ISqlObjectParser sqlObjectParser,
             string schema,
-            string table,
-            string nameHashSeparator = HashJournalDefaults.NameHashSeparator)
+            string table)
         {
             this.sqlObjectParser = sqlObjectParser;
             ConnectionManager = connectionManager;
@@ -38,7 +36,6 @@ namespace DbUp.HashJournal
             FqSchemaTableName = string.IsNullOrEmpty(schema)
                 ? sqlObjectParser.QuoteIdentifier(table)
                 : sqlObjectParser.QuoteIdentifier(schema) + "." + sqlObjectParser.QuoteIdentifier(table);
-            NameHashSeparator = nameHashSeparator;
         }
 
         protected string SchemaTableSchema { get; private set; }

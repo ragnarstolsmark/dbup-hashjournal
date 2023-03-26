@@ -7,14 +7,6 @@ namespace DbUp.HashJournal
 {
     public class HashFilter : IScriptFilter
     {
-        public HashFilter(string nameHashSeparator = HashJournalDefaults.NameHashSeparator)
-        {
-            NameHashSeparator = nameHashSeparator;
-        }
-        /// <summary>
-        /// Separator between name and hash value in executedScriptNames
-        /// </summary>
-        protected string NameHashSeparator { get; private set; }
 
         public IEnumerable<SqlScript> Filter(IEnumerable<SqlScript> sorted, HashSet<string> executedScriptNames,
             ScriptNameComparer comparer)
@@ -26,7 +18,7 @@ namespace DbUp.HashJournal
                 }
 
                 var hash = MD5Hasher.GetHash(s.Contents);
-                var scriptNameToCheck = s.Name + NameHashSeparator + hash;
+                var scriptNameToCheck = s.Name + HashJournalConstants.NameHashSeparator + hash;
                 return !executedScriptNames.Contains(scriptNameToCheck, comparer);
             });
     }

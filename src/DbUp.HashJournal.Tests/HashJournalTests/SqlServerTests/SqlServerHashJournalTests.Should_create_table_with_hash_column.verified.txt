@@ -1,0 +1,6 @@
+﻿create table [dbo].[HashVersions] (
+    [Id] int identity(1,1) not null constraint [PK_HashVersions_Id] primary key,
+    [ScriptName] nvarchar(255) not null,
+    [Hash] char(32) not null,
+    [Applied] datetime not null
+)

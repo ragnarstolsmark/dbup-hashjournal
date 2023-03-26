@@ -1,7 +1,7 @@
 using DbUp.Engine;
 using DbUp.Support;
 
-namespace DbUp.HashJournal.Tests;
+namespace DbUp.HashJournal.Tests.HashFilterTests;
 [UsesVerify]
 public class HashFilterTests
 {
@@ -31,7 +31,7 @@ public class HashFilterTests
         var scriptNameComparer = new ScriptNameComparer(StringComparer.Ordinal);
         var alreadyExecutedScripts = new HashSet<string>()
         {
-            script1.Name + HashJournalDefaults.NameHashSeparator + MD5Hasher.GetHash(script1.Contents)
+            script1.Name + HashJournalConstants.NameHashSeparator + MD5Hasher.GetHash(script1.Contents)
         };
         var scriptsSelectedToRun = hashFilter.Filter(scriptsToRun, alreadyExecutedScripts, scriptNameComparer);
         return Verify(scriptsSelectedToRun.Select(s => s.Name));
@@ -49,7 +49,7 @@ public class HashFilterTests
         var scriptNameComparer = new ScriptNameComparer(StringComparer.Ordinal);
         var alreadyExecutedScripts = new HashSet<string>()
         {
-            script1.Name + HashJournalDefaults.NameHashSeparator + MD5Hasher.GetHash("Insert into table1")
+            script1.Name + HashJournalConstants.NameHashSeparator + MD5Hasher.GetHash("Insert into table1")
         };
         var scriptsSelectedToRun = hashFilter.Filter(scriptsToRun, alreadyExecutedScripts, scriptNameComparer);
         return Verify(scriptsSelectedToRun.Select(s => s.Name));
@@ -67,7 +67,7 @@ public class HashFilterTests
         var scriptNameComparer = new ScriptNameComparer(StringComparer.Ordinal);
         var alreadyExecutedScripts = new HashSet<string>()
         {
-            script1.Name + HashJournalDefaults.NameHashSeparator + MD5Hasher.GetHash(script1.Contents)
+            script1.Name + HashJournalConstants.NameHashSeparator + MD5Hasher.GetHash(script1.Contents)
         };
         var scriptsSelectedToRun = hashFilter.Filter(scriptsToRun, alreadyExecutedScripts, scriptNameComparer);
         return Verify(scriptsSelectedToRun.Select(s => s.Name));
